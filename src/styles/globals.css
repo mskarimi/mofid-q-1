@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.template:after,
+.template:before {
+  display: table;
+  content: " ";
+}

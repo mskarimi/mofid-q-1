@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+#npm run test
+
+#check typescript types
+npm run check-type ||
+(
+  echo '😠 first check types 😠';
+  false;
+)
+
+npm run lint-staged
