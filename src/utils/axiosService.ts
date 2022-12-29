@@ -13,10 +13,23 @@ interface IAxiosService<T> {
   onUploadProgress?: Progress;
   onDownloadProgress?: Progress;
   headers?: AxiosRequestHeaders;
+  params?: Object;
 }
 
 export function axiosService<Response = any, Body = any>(props: IAxiosService<Body>) {
-  const {url, method, body, isFormData, noCache, onDownloadProgress, onUploadProgress, timeout, token, headers} = props;
+  const {
+    url,
+    method,
+    body,
+    isFormData,
+    noCache,
+    onDownloadProgress,
+    onUploadProgress,
+    timeout,
+    token,
+    headers,
+    params,
+  } = props;
 
   let options: AxiosRequestConfig<Body> = {
     url,
@@ -47,6 +60,10 @@ export function axiosService<Response = any, Body = any>(props: IAxiosService<Bo
       ...options.headers,
       "Cache-Control": "no-cache",
     };
+  }
+
+  if (params && Object.keys(params)?.length) {
+    options.params = params;
   }
 
   if (body) {
