@@ -1,0 +1,46 @@
+.sizeScreen {
+  @apply mx-4;
+}
+
+@screen 2xl {
+  .sizeScreen {
+    @apply mx-auto max-w-screen-2xl;
+  }
+}
+
+.template:after,
+.template:before {
+  display: table;
+  content: " ";
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  --scrollbarBG: #1f2937;
+  --thumbBG: #ffffff;
+}
+
+@screen md {
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 10px;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--thumbBG);
+  }
+}
