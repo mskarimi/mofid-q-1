@@ -1,5 +1,11 @@
+import CoinsTable from "view/home/CoinsTable";
+
 function Home() {
-  return <div>home page</div>;
+  return (
+    <div className="sizeScreen my-5">
+      <CoinsTable />
+    </div>
+  );
 }
 
 export default Home;
