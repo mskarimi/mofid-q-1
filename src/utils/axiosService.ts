@@ -1,4 +1,4 @@
-import axios, {AxiosError, AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse, Method} from "axios";
+import axios, {AxiosError, AxiosRequestConfig, AxiosResponse, Method, RawAxiosRequestHeaders} from "axios";
 
 export type Progress = (progressEvent: any) => void;
 
@@ -12,7 +12,7 @@ interface IAxiosService<T> {
   timeout?: number;
   onUploadProgress?: Progress;
   onDownloadProgress?: Progress;
-  headers?: AxiosRequestHeaders;
+  headers?: RawAxiosRequestHeaders;
   params?: Object;
 }
 
@@ -36,7 +36,6 @@ export function axiosService<Response = any, Body = any>(props: IAxiosService<Bo
     method: method,
     headers: {
       "Content-Type": isFormData ? "multipart/form-data" : "application/json",
-      "Accept-Encoding": "*",
     },
     timeout: timeout || timeout === 0 ? timeout : 10000,
     withCredentials: true,
