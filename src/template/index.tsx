@@ -15,6 +15,7 @@ function Template({children}: ITemplate) {
           colorBgBase: "#1F2937",
           colorTextBase: "#F3F4F6",
           colorBorder: "#F3F4F6",
+          colorTextPlaceholder: "rgba(243, 244, 246, .5)",
         },
       }}
     >
