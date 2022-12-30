@@ -10,13 +10,14 @@ const HomePage: NextPage = () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ["coins"],
+    queryKey: ["coins", 1],
     queryFn: () => getCoins({isServer: true, params: {page: 1}}),
   });
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 10,
   };
 };
 

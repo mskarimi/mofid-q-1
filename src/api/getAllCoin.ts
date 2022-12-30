@@ -2,7 +2,7 @@ import {axiosService} from "utils/axiosService";
 import {API} from "api/const";
 import {RawAxiosRequestHeaders} from "axios";
 
-interface IGetCoinsRes {
+export interface IGetCoinsRes {
   id: string;
   symbol: string;
   name: string;
