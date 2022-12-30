@@ -12,31 +12,34 @@ interface IPaginate {
   disabled: boolean;
 }
 
-const btnClassName =
-  "group flex items-center text-textColor hover:text-[#4096ff] disabled:text-[#374151] disabled:border-[#374151]";
-const iconClassName =
-  "w-5 h-5 text-textColor group-hover:text-[#4096ff] transition-colors ease-linear group-disabled:text-[#374151] duration-200";
-
 function Paginate(props: IPaginate) {
   const {onClickNext, onClickPrev, hasPrev, hasNext, disabled} = props;
   const className = classNames({
     "flex items-center mt-5": true,
-    "justify-between": hasNext,
-    "justify-end": !hasNext,
+    "justify-between": hasPrev,
+    "justify-end": !hasPrev,
   });
 
   return (
     <div className={className}>
-      {hasNext ? (
-        <Button disabled={disabled} onClick={onClickNext} className={btnClassName}>
-          <IconRoundedLeft className={`mr-2 ${iconClassName}`} />
-          بعدی
+      {hasPrev ? (
+        <Button
+          icon={<IconRoundedLeft className="absolute left-1 w-5 h-5" />}
+          disabled={disabled}
+          onClick={onClickPrev}
+          className="relative flex items-center pl-7"
+        >
+          previous
         </Button>
       ) : null}
-      {hasPrev ? (
-        <Button disabled={disabled} onClick={onClickPrev} className={btnClassName}>
-          قبلی
-          <IconRoundedRight className={`ml-2 ${iconClassName}`} />
+      {hasNext ? (
+        <Button
+          icon={<IconRoundedRight className="absolute right-1 w-5 h-5" />}
+          disabled={disabled}
+          onClick={onClickNext}
+          className="relative flex items-center pr-7"
+        >
+          next
         </Button>
       ) : null}
     </div>

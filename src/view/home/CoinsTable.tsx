@@ -24,7 +24,7 @@ interface ICoinsTable {
   page: number;
 }
 
-const className = "bg-mainBg text-[#9CA3AF] border-[#374151] before:bg-mainBg rounded-none";
+const className = "border-[#374151] text-[#9CA3AF] before:bg-mainBg";
 
 function CoinsTable({data, isLoading, isFetching, page}: ICoinsTable) {
   const percentRender = useCallback((value: number) => {
