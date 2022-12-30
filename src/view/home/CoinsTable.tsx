@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo} from "react";
-import {IGetCoinsRes} from "api/getAllCoin";
+import {IGetCoinsRes} from "api/getCoin";
 import {Table} from "antd";
 import type {ColumnsType} from "antd/es/table";
 import {IconRoundedDown, IconRoundedUp} from "assets/icons";

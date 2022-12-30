@@ -24,7 +24,7 @@ export const getCoins: TGetCoins = ({isServer = false, params}) => {
     };
   }
   return axiosService({
-    url: isServer ? process.env.DOMAIN + API.GET_ALL_COIN : API.GET_ALL_COIN,
+    url: isServer ? process.env.DOMAIN + API.GET_COIN : API.GET_COIN,
     method: "get",
     params,
     headers,
